@@ -1,0 +1,86 @@
+.Start{
+    background: white;
+    margin: 2px 5px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 50px;
+    padding-bottom: 80px;
+}
+.StartHead{
+    font-size: x-large;
+    padding: 10px;
+    padding-left: 15px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+    background: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+}
+.HeadImage img{
+    width: 35px;
+}
+.HeadText{
+    margin-left: 5px;
+    font-family: 'Aboreto', cursive;
+}
+.HeadText h1{
+    margin: 0;
+    font-size: larger;
+    color: #70706e;
+}
+.StartClose img{
+    width: 35px;
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+}
+.StartClose img:hover{
+    transform: scale(1.1);
+    transform: rotate(90deg);
+}
+.StartMain form{
+   display: flex;
+   justify-content: space-around;
+   margin-top: 80px;
+}
+
+.Player{
+    margin: 0;
+}
+
+.PlayerImage{
+    background: #d3d3d35e;
+    text-align: center;
+    padding: 10px;
+    border-radius: 50%;
+    width: 160px;
+}
+.PlayerImage img{
+    width: 160px;
+}
+
+.PlayerInput{
+    margin-top: 20px;
+    margin-left: -20px;
+}
+
+.StartGame{
+    align-self: center;
+}
+.StartGame button{   
+    border: none;
+    border-radius: 30px;
+    font-size: x-large;
+    background: #ea6660;
+    padding: 14px;
+    color: white;
+    font-family: 'Silkscreen', cursive;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}
+.StartGame button:hover{
+    background:#73d59e;
+    transform: scale(1.1);
+}
+.StartGame button:active{
+    background:#70706e;
+    transform: scale(0.9);
+}
