@@ -13,8 +13,8 @@ function Game() {
           </div>
           <div className={style.HeadText}><h1><img src='https://cdn-icons-png.flaticon.com/512/2150/2150463.png' alt='live' width='40'/> Badmintion Match</h1></div>
       </div>
-      <Player/>
-      <Addscore/>
+      <Player/><hr/>
+      {/* <Addscore/> */}
       <Displayscore/>
 
       

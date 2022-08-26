@@ -11,7 +11,7 @@ function Player() {
   const [set,setSet] = useState(1);
   useEffect(()=>{
     if(live){
-        document.getElementById('GameScore').style.color = 'red';
+        document.getElementById('GameScore').style.color = '#ea6660';
     }
   },[live])
   return (

@@ -1,0 +1,20 @@
+.Displayscore{
+    background: white;
+}
+.DisplayHead{
+    display: flex;
+    margin-left: 12px;
+}
+
+
+.DisplayMatchButton{
+    border: none;
+    margin: 0 8px;
+    color: dimgray;
+    padding: 5px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.DisplayMatchButton:hover{
+    background: #80808063;
+}
