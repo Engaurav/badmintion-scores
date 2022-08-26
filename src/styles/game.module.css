@@ -1,0 +1,59 @@
+.Game{
+    background: white;
+    margin: 20px 5px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-bottom: 50px;
+}
+.GameHead{
+    font-size: x-large;
+    padding: 10px;
+    padding-left: 15px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+    background: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+}
+.HeadImage img{
+    width: 35px;
+}
+.HeadText{
+    margin-left: 5px;
+    font-family: 'Aboreto', cursive;
+}
+.HeadText h1{
+    margin: 0;
+    font-size: larger;
+    color: #70706e;
+}
+.PlayerDetail{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.PlayerImage{
+    background: #d3d3d35e;
+    text-align: center;
+    padding: 10px;
+    border-radius: 50%;
+    width: 160px;
+}
+.PlayerImage img{
+    width: 130px;
+}
+
+.PlayerName{
+    font-size: x-large;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.GameScore{
+    text-align: center;
+    align-self: center;
+}
+.GameScoreFinal{
+    font-family: 'Mina', sans-serif; 
+}
