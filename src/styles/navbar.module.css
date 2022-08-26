@@ -1,0 +1,26 @@
+.Navbar{
+    background: white;
+    margin: 2px 5px;
+    border-radius: 10px;
+    display: flex;
+}
+
+.Icondiv{
+    margin: 5px;
+    margin-left: 15px;
+}
+
+.Icondiv img{
+    width: 80px;
+}
+
+
+.Brandtext{
+    color: #70706e;
+}
+.Brandtext h1{
+    font-size: xx-large;
+}
+.Brandtext h1 span{
+    color: #ea6660;
+}
