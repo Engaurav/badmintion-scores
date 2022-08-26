@@ -1,0 +1,28 @@
+.Round{
+    text-align: center;
+}
+
+.WinDiv{
+    display: flex;
+    justify-content: space-around;
+}
+
+.WinDivButton{   
+    border: none;
+    border-radius: 30px;
+    font-size: large;
+    background: #ea6660;
+    padding: 14px;
+    color: white;
+    font-family: 'Silkscreen', cursive;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}
+.WinDivButton:hover{
+    background:#73d59e;
+    transform: scale(1.1);
+}
+.WinDivButton:active{
+    background:#70706e;
+    transform: scale(0.9);
+}
