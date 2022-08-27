@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from '../styles/start.module.css';
 
 function Start(props) {
+  const [player1,setPlayer1] = useState('');
+  const [player2,setPlayer2] = useState('');
+  const handleForm =async (e) =>{
+    await e.preventDefault();
+    await props.handleNewGame(player1,player2);
+
+  }
   return (
     <div className={style.Start}>
         <div className={style.StartHead}>
@@ -15,13 +22,13 @@ function Start(props) {
            
         </div>
         <div className={style.StartMain}>
-            <form>
+            <form onSubmit={(e)=>{handleForm(e)}}>
                 <div className={style.Player}>
                     <div className={style.PlayerImage}>
                         <img src='https://cdn-icons-png.flaticon.com/512/2348/2348806.png' alt='Player1'/>
                     </div>
                     <div className={style.PlayerInput}>
-                        <input type='text' placeholder='Enter Player 1' className='form-control' required/>
+                        <input type='text' placeholder='Enter Player 1' className='form-control' required onKeyUp={(e)=>{setPlayer1(e.target.value)}}/>
                     </div>
                 </div>
                 <div className={style.StartGame}>
@@ -32,7 +39,7 @@ function Start(props) {
                         <img src='https://cdn-icons-png.flaticon.com/512/2348/2348806.png' alt='Player2'/>
                     </div>
                     <div className={style.PlayerInput}>
-                        <input type='text' placeholder='Enter Player 2' className='form-control' required/>
+                        <input type='text' placeholder='Enter Player 2' className='form-control' required onKeyUp={(e)=>{setPlayer2(e.target.value)}}/>
                     </div>
                 </div>
             </form>

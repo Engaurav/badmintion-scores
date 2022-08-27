@@ -2,13 +2,26 @@ import React, { useEffect, useState } from 'react'
 import style from "../styles/game.module.css";
 
 
-function Player() {
+function Player(props) {
   const [live,setLive] = useState(true);
   const [player1,setPlayer1] = useState('Player1');
-  const [player1Score,setPlayer1Score] = useState(4);
+  const [player1SetScore,setPlayer1SetScore] = useState(2);
+  const [player1CurrentScore,setPlayer1CurrentScore] = useState('-');
   const [player2,setPlayer2] = useState('Player2');
-  const [player2Score,setPlayer2Score] = useState(9);
-  const [set,setSet] = useState(1);
+  const [player2SetScore,setPlayer2SetScore] = useState(0);
+  const [player2CurrentScore,setPlayer2CurrentScore] = useState('-');
+  const [set,setSet] = useState(0);
+
+  useEffect(()=>{
+    const data = props.scorecard;
+    console.log(data);
+    setPlayer1(data.player1);
+    setPlayer2(data.player2);
+    setPlayer1SetScore(data.player1set);
+    setPlayer2SetScore(data.player2set);
+
+  },[props])
+
   useEffect(()=>{
     if(live){
         document.getElementById('GameScore').style.color = '#ea6660';
@@ -29,13 +42,13 @@ function Player() {
         </div>
         <div className={style.GameScore} id='GameScore'>
             <h1 className={style.GameScoreFinal}>
-                5 - 2
+                {player1SetScore} - {player2SetScore}
             </h1>
             { live ? <><h6>
                 SET {set}
             </h6>
             <h6>
-                {player1Score}:{player2Score}
+                {player1CurrentScore}:{player2CurrentScore}
             </h6></> : <h5>Finished</h5>}
             
         </div>

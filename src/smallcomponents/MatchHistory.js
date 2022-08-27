@@ -1,8 +1,15 @@
-import React from 'react'
+import React from 'react';
+import style from '../styles/matchhistory.module.css'
+import MatchSet from './MatchSet';
+
 
 function MatchHistory() {
   return (
-    <div>MatchHistory</div>
+    <div className={style.MatchHistory}>
+        <MatchSet data='1'/>
+        <MatchSet data='2'/>
+        <MatchSet data='3'/>
+    </div>
   )
 }
 

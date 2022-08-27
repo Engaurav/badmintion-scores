@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Addscore from "../smallcomponents/Addscore";
 import Displayscore from "../smallcomponents/Displayscore";
 import Player from "../smallcomponents/Player";
 import style from "../styles/game.module.css";
 
-function Game() {
+function Game(props) {
+  const [scorecard,setScorecard] = useState({});
+  const [live,setLive] = useState(false);
+  useEffect(()=>{
+    setScorecard(props.scorecard);
+    setLive(props.live);
+  },[props.scorecard])
+
   return (
     <div className={style.Game}>
       <div className={style.GameHead}>
@@ -13,9 +20,9 @@ function Game() {
           </div>
           <div className={style.HeadText}><h1><img src='https://cdn-icons-png.flaticon.com/512/2150/2150463.png' alt='live' width='40'/> Badmintion Match</h1></div>
       </div>
-      <Player/><hr/>
-      {/* <Addscore/> */}
-      <Displayscore/>
+      <Player scorecard={scorecard} live={live}/><hr/>
+      <Addscore/>
+      <Displayscore scorecard={scorecard}/>
 
       
     </div>

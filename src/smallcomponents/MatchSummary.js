@@ -1,34 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import style from '../styles/matchsummary.module.css'
 
-function MatchSummary() {
+function MatchSummary(props) {
+    const [player1,setPlayer1] = useState('Player 1');
+    const [player2,setPlayer2] = useState('Player 2');
+    const [player1SetScore,setPlayer1SetScore] = useState(2);
+    const [player2SetScore,setPlayer2SetScore] = useState(0);
+    const [rounds,setRounds] = useState([]);
+
+
+    useEffect(()=>{
+        const data = props.scorecard;
+        setPlayer1(data.player1);
+        setPlayer2(data.player2);
+        setPlayer1SetScore(data.player1set);
+        setPlayer2SetScore(data.player2set);
+        if(data.rounds){
+            setRounds(data.rounds);
+        }
+        // console.log(rounds)
+        
+    },[props])
   return (
     <div className={style.MatchSummary}>
         <div className={style.MatchPlayer}>
             <div><b>Player</b></div>
             <div className={style.MatchDetail}>
                 <div><b>SET</b></div>
-                <div><b>Round 1</b></div>
-                <div><b>Round 2</b></div>
-                <div><b>Round 3</b></div>
+                { rounds.map((val,index)=>{
+                    const i = index+1;
+                    return <div><b>Round {i}</b></div>
+                })}
+                
+                {/* <div><b>Round 2</b></div>
+                <div><b>Round 3</b></div> */}
             </div>
         </div>
         <div className={style.MatchPlayer}>
-            <div>Player 1</div>
+            <div>{player1}</div>
             <div className={style.MatchDetail}>
-                <div>1</div>
-                <div>21</div>
-                <div>13</div>
-                <div>19</div>
+                <div>{player1SetScore}</div>
+                { rounds.map((val,index)=>{
+                    return <div>{val.player1currentscore}</div>
+                })}
             </div>
         </div>
         <div className={style.MatchPlayer}>
-        <div>Player 2</div>
+        <div>{player2}</div>
             <div className={style.MatchDetail}>
-                <div>1</div>
-                <div>18</div>
-                <div>21</div>
-                <div>19</div>
+                <div>{player2SetScore}</div>
+                { rounds.map((val,index)=>{
+                    return <div>{val.player2currentscore}</div>
+                })}
             </div>
         </div>
     </div>
