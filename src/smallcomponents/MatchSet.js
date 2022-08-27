@@ -1,20 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import style from '../styles/matchhistory.module.css'
 
 
 function MatchSet(props) {
+  const [points,setPoints] = useState([]);
+  useEffect(()=>{
+    setPoints(props.points)
+  },[props])
   return (
     <div className={style.MatchSet}>
-        <h5>Set {props.data}</h5>
+        <h5>Set {props.index}</h5>
         <ul className={style.ScoreList}>
-            <li>1-0</li>
-            <li>1-1</li>
-            <li>1-2</li>
-            <li>2-2</li>
-            <li>4-2</li>
-            <li>5-2</li>
-            <li>5-3</li>
-            <li>5-4</li>
+          {points.map((val,index)=>{
+            const temp = val.won;
+            return  temp ? <li key={index}><font style={{color:'red'}}>{val.player1point}</font>:{val.player2point}</li> : <li key={index}>{val.player1point}:<font style={{color:'red'}}>{val.player2point}</font></li>
+          })}
         </ul>
     </div>
     

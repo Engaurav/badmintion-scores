@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import style from '../styles/matchhistory.module.css'
 import MatchSet from './MatchSet';
 
 
-function MatchHistory() {
+function MatchHistory(props) {
+  const [rounds,setRounds] = useState([]);
+  useEffect(()=>{
+    const data = props.scorecard;
+    setRounds(data.rounds);
+    // console.log(data)
+  },[props])
   return (
     <div className={style.MatchHistory}>
-        <MatchSet data='1'/>
-        <MatchSet data='2'/>
-        <MatchSet data='3'/>
+      { rounds.map((value,index)=>{
+        const i = index+1;
+        return <MatchSet index={i} key={index} points={value.points}/>
+      })}
+        
     </div>
   )
 }
