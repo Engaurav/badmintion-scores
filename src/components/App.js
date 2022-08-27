@@ -22,29 +22,14 @@ function App() {
       player2set : 0,
       rounds : [
         {
-          player1currentscore:2,
-          player2currentscore:2,
+          player1currentscore:0,
+          player2currentscore:0,
           points : [
-            {
-              player1point : 1,
-              player2point : 0,
-              won : true
-            },
-            {
-              player1point : 1,
-              player2point : 1,
-              won : false
-            },
-            {
-              player1point : 1,
-              player2point : 2,
-              won : false
-            },
-            {
-              player1point : 2,
-              player2point : 2,
-              won : true
-            }
+            // {
+              // player1point : 1,
+              // player2point : 0,
+              // won : true
+            // }
         ]}]
       ,
 

@@ -29,7 +29,7 @@ function MatchSummary(props) {
                 <div><b>SET</b></div>
                 { rounds.map((val,index)=>{
                     const i = index+1;
-                    return <div><b>Round {i}</b></div>
+                    return <div key={index}><b>Round {i}</b></div>
                 })}
                 
                 {/* <div><b>Round 2</b></div>

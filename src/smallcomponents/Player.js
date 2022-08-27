@@ -5,7 +5,7 @@ import style from "../styles/game.module.css";
 function Player(props) {
   const [live,setLive] = useState(true);
   const [player1,setPlayer1] = useState('Player1');
-  const [player1SetScore,setPlayer1SetScore] = useState(2);
+  const [player1SetScore,setPlayer1SetScore] = useState(0);
   const [player1CurrentScore,setPlayer1CurrentScore] = useState('-');
   const [player2,setPlayer2] = useState('Player2');
   const [player2SetScore,setPlayer2SetScore] = useState(0);
@@ -13,14 +13,22 @@ function Player(props) {
   const [set,setSet] = useState(0);
 
   useEffect(()=>{
-    const data = props.scorecard;
-    console.log(data);
+    let data = props.scorecard;
     setPlayer1(data.player1);
     setPlayer2(data.player2);
     setPlayer1SetScore(data.player1set);
     setPlayer2SetScore(data.player2set);
+    if(data.rounds){
+      setPlayer1CurrentScore(data.rounds[props.round].player1currentscore)
+      setPlayer2CurrentScore(data.rounds[props.round].player2currentscore)
+    }
 
+    setLive(props.live)
   },[props])
+
+  useEffect(()=>{
+    setSet(props.round+1);
+  },[props.round])
 
   useEffect(()=>{
     if(live){

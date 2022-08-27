@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import style from '../styles/displayscore.module.css';
 import MatchHistory from './MatchHistory';
 import MatchSummary from './MatchSummary';
 
 function Displayscore(props) {
+  const [scorecard,setScorecard] = useState({});
+  useEffect(()=>{
+    setScorecard(props.scorecard);
+  },[props])
   const [tab,setTab] = useState(true);
 
   return (
@@ -14,7 +18,7 @@ function Displayscore(props) {
         </div>
         <div className={style.DisplayMain}>
 
-        { tab ? <MatchSummary scorecard={props.scorecard}/> : <MatchHistory scorecard={props.scorecard}/>}
+        { tab ? <MatchSummary scorecard={scorecard}/> : <MatchHistory scorecard={scorecard}/>}
         </div>
     </div>
   )
