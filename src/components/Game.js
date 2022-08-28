@@ -3,6 +3,8 @@ import Addscore from "../smallcomponents/Addscore";
 import Displayscore from "../smallcomponents/Displayscore";
 import Player from "../smallcomponents/Player";
 import style from "../styles/game.module.css";
+import {collection,addDoc} from "firebase/firestore";
+import { db } from "../firebase-config";
 
 function Game(props) {
   const [scorecard,setScorecard] = useState({});
@@ -11,6 +13,8 @@ function Game(props) {
   const [player2Score,setPlayer2Score] = useState(0);
   const [round,setRound] = useState(0);
   const [showAddScore,setShowAddScore] = useState(false);
+  const usersCollectionRef = collection(db, "scorecard");
+
 
   useEffect(()=>{
     console.log(props.scorecard)
@@ -22,7 +26,7 @@ function Game(props) {
   },[props])
 
 
-  const handleGame = (player) => {
+  const handleGame = async (player) => {
     if(player){
       // console.log('Player1')
       
@@ -102,6 +106,7 @@ function Game(props) {
         if(round===2 || data.player2set===2){
           setShowAddScore(false);
           setLive(false);
+          await addDoc(usersCollectionRef, data);
         }else{
           data.rounds.push(newround);
           setRound(1+round);
@@ -120,6 +125,7 @@ function Game(props) {
         if(round===2 ||  data.player2set===2){
           setShowAddScore(false);
           setLive(false);
+          await addDoc(usersCollectionRef, data);
         }else{
           data.rounds.push(newround);
           setRound(1+round);
@@ -132,11 +138,15 @@ function Game(props) {
 
   return (
     <div className={style.Game}>
+      
       <div className={style.GameHead}>
           <div className={style.HeadImage}>
-              <img src='https://cdn-icons-png.flaticon.com/512/502/502189.png' alt='start'/>   
+          { live ? <img src='https://cdn-icons-png.flaticon.com/512/502/502189.png' alt='start'/>    : 
+            <a href="./"><img src="https://cdn-icons-png.flaticon.com/512/189/189254.png" alt="backHome" width='40px' /></a>
+          }
+              
           </div>
-          <div className={style.HeadText}><h1>{ live ? <img src='https://cdn-icons-png.flaticon.com/512/2150/2150463.png' alt='live' width='40'/>:''} Badmintion Match</h1></div>
+          <div className={style.HeadText}><h1>{ live ? <img src='https://cdn-icons-png.flaticon.com/512/2150/2150463.png' alt='live' width='40'/>:''} Badminton Match</h1></div>
       </div>
       <Player scorecard={scorecard} round={round} live={live}/><hr/>
       {showAddScore ? <Addscore handleGame={handleGame}  scorecard={scorecard}/> : ''}

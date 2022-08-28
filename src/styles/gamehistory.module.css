@@ -1,0 +1,34 @@
+.GameHistory{
+    background: white;
+    margin: 20px 5px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-bottom: 50px;
+}
+.GameHead{
+    font-size: x-large;
+    padding: 10px;
+    padding-left: 15px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+    background: whitesmoke;
+    display: flex;
+}
+.HeadImage img{
+    width: 35px;
+}
+.HeadText{
+    margin-left: 15px;
+    font-family: 'Aboreto', cursive;
+}
+.HeadText h1{
+    margin: 0;
+    font-size: larger;
+    color: #70706e;
+}
+
+
+.tbodyTr{
+    cursor: pointer;
+    font-size: larger;
+    font-family: 'Aboreto', cursive;
+}
