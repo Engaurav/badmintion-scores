@@ -5,12 +5,17 @@ function Addscore(props) {
   const [startRound, setStratRound] = useState(true);
   const [player1, setPlayer1] = useState("Payer1");
   const [player2, setPlayer2] = useState("Payer2");
+  const [round,setRound] = useState(0);
   useEffect(() => {
     const data = props.scorecard;
     setPlayer1(data.player1);
     setPlayer2(data.player2);
   }, [props]);
 
+
+  useEffect(()=>{
+    setRound(props.round+1);
+  },[props.round])
 
   return (
     <div className={style.Addscore}>

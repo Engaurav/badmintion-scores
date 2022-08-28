@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Newgame from '../smallcomponents/Newgame';
 import Start from '../smallcomponents/Start';
-import '../styles/App.css';
 import Game from './Game'
 import GameHistory from './GameHistory';
 import Navbar from './Navbar';
+import '../styles/App.css';
 
 function App() {
   const [showStart,setShowStart] = useState(false);

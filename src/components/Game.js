@@ -149,7 +149,7 @@ function Game(props) {
           <div className={style.HeadText}><h1>{ live ? <img src='https://cdn-icons-png.flaticon.com/512/2150/2150463.png' alt='live' width='40'/>:''} Badminton Match</h1></div>
       </div>
       <Player scorecard={scorecard} round={round} live={live}/><hr/>
-      {showAddScore ? <Addscore handleGame={handleGame}  scorecard={scorecard}/> : ''}
+      {showAddScore ? <Addscore handleGame={handleGame} round={round}  scorecard={scorecard}/> : ''}
       <Displayscore scorecard={scorecard}/>
 
       

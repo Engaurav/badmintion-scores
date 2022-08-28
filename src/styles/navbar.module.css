@@ -3,6 +3,8 @@
     margin: 2px 5px;
     border-radius: 10px;
     display: flex;
+    justify-content: space-around;
+    overflow: hidden;
 }
 
 .Icondiv{
@@ -17,6 +19,7 @@
 
 .Brandtext{
     color: #70706e;
+    flex: auto;
 }
 .Brandtext h1{
     font-size: xx-large;
@@ -24,4 +27,15 @@
 }
 .Brandtext h1 span{
     color: #ea6660;
+}
+
+
+.Rules{
+    margin-right: 15px;
+    cursor: pointer;
+    margin-top: -10px;
+    transition: ease-in-out 0.3s;
+}
+.Rules:hover{
+    margin-top: 0;
 }
